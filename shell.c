@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-
-#define IN_BUFFER 2048
+#include "shell.h"
 
 /*
  * stdin fd0
@@ -28,7 +23,13 @@ char *inputread(){
 }
 
 int main(int argc, char **argv){
-    system("clear");
+
+    if(argc>1 && strcmp(argv[0],"--nc")!=0){
+        system("clear");
+    }
+
+    printf("Starting peky shell\n");
+
     char *shellread;
     
     while (1){
